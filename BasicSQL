@@ -1,7 +1,12 @@
+// database creation
 create database shoppingcart;
 use shoppingcart;
+
+// table creation
 create table employee (id int primary key auto_increment, name varchar(100) not null, department varchar(100)
 not null, salary decimal, city varchar(100));
+
+// record insertion
 insert into employee (name, department, salary, city) VALUES
 ('Aarav Sharma', 'IT', 75000, 'Mumbai'),
 ('Aditi Rao', 'HR', 55000, 'Delhi'),
@@ -14,6 +19,8 @@ insert into employee (name, department, salary, city) VALUES
 ('Siddharth Malhotra', 'Marketing', 65000, 'Gurugram'),
 ('Kriti Joshi', 'IT', 71000, 'Noida');
 select * from employee;
+
+// operator
 select * from employee where department = "IT";
 select * from employee where salary>60000;
 select * from employee where salary>=55000;
@@ -36,14 +43,39 @@ select * from employee where department = "IT" and salary between 55000 and 7500
 and not city = "Noida";
 select * from employee where department = "IT" and salary between 55000 and 75000
 and city <> "Noida";
+
+// like
 select * from employee where name like "A%";
 select * from employee where name like "%a";
 select * from employee where name like "%a%";
 select * from employee where name like "A%" and department in ("IT", "HR") and salary>60000;
 select * from employee where name like "A_iti%";
 insert into employee(name, department, salary, city) values ("Sohan" , "HR", 80000, NULL);
+
+// null, is null
 select * from employee where city is null;
 select * from employee where city is not null;
 select * from employee where city = null;
 select * from employee where department in ("IT", "Finance") and city in ("Delhi", "Mumbai",
 "Banglore") and salary between 55000 and 75000 and (name like "A%" or name like "R%");
+
+// order by clause
+select * from employee;
+select * from employee order by salary asc;
+select * from employee order by salary desc;
+select * from employee order by name asc;
+select * from employee order by name desc;
+select * from employee where department = "IT" order by salary desc;
+select * from employee order by salary desc limit 3;
+select * from employee where department= "IT" order by salary desc limit 2;
+select * from employee order by salary desc, name asc;
+select * from employee where department in("IT", "Finance") and salary between 55000 and 75000
+order by salary desc;
+select * from employee where city in("Delhi", "Mumbai", "Banglore") order by salary desc limit 3;
+select * from employee order by salary desc limit 1 offset 1;
+select * from employee order by salary desc limit 1 offset 2;
+select * from employee order by salary asc limit 3;
+select * from employee where department="IT" order by salary desc limit 2;
+select * from employee where city in("Delhi", "Banglore") and salary>55000 order by salary desc;
+select * from employee order by salary desc limit 1 offset 1;
+select * from employee where department in("IT", "Finance") and salary between 55000 and 75000 order by salary desc;
