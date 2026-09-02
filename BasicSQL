@@ -1,0 +1,49 @@
+create database shoppingcart;
+use shoppingcart;
+create table employee (id int primary key auto_increment, name varchar(100) not null, department varchar(100)
+not null, salary decimal, city varchar(100));
+insert into employee (name, department, salary, city) VALUES
+('Aarav Sharma', 'IT', 75000, 'Mumbai'),
+('Aditi Rao', 'HR', 55000, 'Delhi'),
+('Rohan Das', 'Finance', 90000, 'Kolkata'),
+('Priya Patel', 'Marketing', 62000, 'Ahmedabad'),
+('Vikram Singh', 'IT', 82000, 'Bangalore'),
+('Neha Gupta', 'HR', 58000, 'Pune'),
+('Amit Verma', 'Sales', 48000, 'Hyderabad'),
+('Ananya Mishra', 'Finance', 95000, 'Chennai'),
+('Siddharth Malhotra', 'Marketing', 65000, 'Gurugram'),
+('Kriti Joshi', 'IT', 71000, 'Noida');
+select * from employee;
+select * from employee where department = "IT";
+select * from employee where salary>60000;
+select * from employee where salary>=55000;
+select * from employee where salary = 55000;
+select * from employee where salary != 55000;
+select * from employee where salary <> 55000;
+select * from employee where salary > 60000 and department = "IT";
+select * from employee where city ="Mumbai" or city="Noida";
+select * from employee where not department = "IT";
+select * from employee where department != "IT";
+select * from employee where department <> "IT";
+select * from employee where city = "Banglore" and salary>65000;
+select * from employee;
+select * from employee where city = "Mumbai" or city = "Banglore" or city="Pune";
+select * from employee where city in ("Mumbai", "Banglore", "Pune");
+select * from employee where department in ("IT", "HR") and city in ("Mumbai", "Banglore",
+"Pune") and salary >50000;
+select * from employee where salary between 55000 and 70000;
+select * from employee where department = "IT" and salary between 55000 and 75000
+and not city = "Noida";
+select * from employee where department = "IT" and salary between 55000 and 75000
+and city <> "Noida";
+select * from employee where name like "A%";
+select * from employee where name like "%a";
+select * from employee where name like "%a%";
+select * from employee where name like "A%" and department in ("IT", "HR") and salary>60000;
+select * from employee where name like "A_iti%";
+insert into employee(name, department, salary, city) values ("Sohan" , "HR", 80000, NULL);
+select * from employee where city is null;
+select * from employee where city is not null;
+select * from employee where city = null;
+select * from employee where department in ("IT", "Finance") and city in ("Delhi", "Mumbai",
+"Banglore") and salary between 55000 and 75000 and (name like "A%" or name like "R%");
