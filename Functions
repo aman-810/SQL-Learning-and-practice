@@ -1,0 +1,58 @@
+// use database
+use shoppingcart;
+
+// table creation
+create table A(id int primary key auto_increment, name varchar(100) not null, department varchar(100),
+role varchar(100), salary decimal, city varchar(100), experience int);
+
+// record insertion
+insert into A(name, department, role, salary, city, experience) values
+('Aarav Sharma', 'IT', 'Software Engineer', 75000, 'Delhi', 3),
+('Priya Verma', 'HR', 'HR Manager', 65000, 'Mumbai', 5),
+('Rohan Gupta', 'Finance', 'Analyst', 55000, 'Bengaluru', 2),
+('Neha Singh', 'IT', 'Senior Developer', 95000, 'Pune', 7),
+('Amit Kumar', 'Marketing', 'Executive', 45000, 'Delhi', 1),
+('Sneha Das', 'Sales', 'Sales Lead', 60000, 'Kolkata', 4),
+('Vikram Malhotra', 'IT', 'DevOps Engineer', 85000, 'Hyderabad', 6),
+('Ananya Roy', 'Finance', 'Accountant', 50000, 'Mumbai', 3),
+('Rahul Joshi', 'Operations', 'Supervisor', 40000, 'Chennai', 2),
+('Pooja Nair', 'HR', 'Recruiter', 48000, 'Bengaluru', 2),
+('Karan Mehta', 'IT', 'Tech Lead', 120000, 'Pune', 9),
+('Divya Iyer', 'Marketing', 'Manager', 80000, 'Delhi', 6),
+('Manoj Tiwari', 'Sales', 'Executive', 42000, 'Jaunpur', 1),
+('Swati Rao', 'Finance', 'Financial Analyst', 70000, 'Hyderabad', 4),
+('Alok Pandey', 'Operations', 'Manager', 90000, 'Mumbai', 8),
+('Megha Kapoor', 'IT', 'QA Engineer', 55000, 'Chennai', 3),
+('Deepak Yadav', 'Sales', 'Manager', 85000, 'Delhi', 7),
+('Kritika Sen', 'HR', 'HR Executive', 45000, 'Kolkata', 1),
+('Abhishek Jain', 'IT', 'Full Stack Developer', 90000, 'Bengaluru', 5),
+('Tanvi Saxena', 'Marketing', 'Content Creator', 48000, 'Pune', 2);
+
+select * from A;
+// aggregate functions
+select count(*) as Total_employee from A;
+insert into A(name, department, role, salary, city, experience) values("Mohan Sharma", null,
+"Account Manager", 75000, "Pune", 2);
+select count(department) from A;
+select sum(salary) as total_salary from A;
+select avg(salary) as average_salary from A;
+select min(salary) from A;
+select max(salary) from A;
+select count(*) as total_employee, sum(salary) as total_salary, avg(salary) as avg_salary,
+max(salary) as highest_salary, min(salary) as lowest_salary from A;
+select * from A where department = "IT";
+select max(salary) as highest_salary_it from A where department="IT";
+select count(*) as total_it from A where department= "IT";
+select * from A where city="Bengaluru";
+select avg(salary) as avg_salary from A where department = "IT" and city= "Bengaluru";
+select max(salary) from A where department in ("IT", "Finance");
+select avg(salary) as avg_salary from A where salary between 60000 and 80000;
+select sum(salary), avg(salary), max(salary), min(salary) from A where department="IT" and
+department in("Bengaluru", "Hyderabad") and experience>=2;
+select count(*) from A where department="IT";
+select sum(salary) from A where department="Finance";
+select avg(salary) from A where city="Mumbai";
+select max(salary) from A where experience>3;
+select count(*) from A where city in ("Bengaluru", "Hyderabad") and salary>60000;
+select sum(salary), avg(salary) from A where department in("IT", "Finance") and city in ("Bengaluru",
+"Mumbai", "Pune") and experience > 3;
